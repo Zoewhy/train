@@ -20,4 +20,5 @@ public class MemberApplication {
         LOG.info("测试地址:\thttp://127.0.0.1:{}", environment.getProperty("server.port"));
     }
 
+
 }
