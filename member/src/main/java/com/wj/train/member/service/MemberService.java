@@ -1,6 +1,8 @@
 package com.wj.train.member.service;
 
 import cn.hutool.core.collection.CollUtil;
+import com.wj.train.common.Exception.BusinessException;
+import com.wj.train.common.Exception.BusinessExceptionEnum;
 import com.wj.train.member.domain.Member;
 import com.wj.train.member.domain.MemberExample;
 import com.wj.train.member.mapper.MemberMapper;
@@ -25,7 +27,7 @@ public class MemberService {
         memberExample.createCriteria().andMobileEqualTo(req.getMobile());
         List<Member> members = memberMapper.selectByExample(memberExample);
         if(CollUtil.isNotEmpty(members)){
-            throw new RuntimeException("该电话号码已经存在");
+            throw new BusinessException(BusinessExceptionEnum.MEMBER_MOBILE_EXIST);
         }
 
         Member member = new Member();

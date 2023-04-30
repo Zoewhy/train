@@ -7,6 +7,19 @@ Accept-Encoding: br,deflate,gzip,x-gzip
 
 mobile=123
 
+<> 2023-04-30T213705.200.json
+
+###
+
+POST http://localhost:8000/member/member/register
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 10
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+mobile=123
+
 <> 2023-04-30T212402.200.json
 
 ###
@@ -496,16 +509,6 @@ User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 <> 2023-03-31T163717.200.json
-
-###
-
-GET http://localhost:8001/member/test
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-03-31T163714.200.json
 
 ###
 
