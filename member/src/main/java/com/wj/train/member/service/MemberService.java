@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemberService {
     @Resource
-    private MemberMapper mapper;
+    private MemberMapper memberMapper;
 
-    public int count(){
-        return mapper.count();
+    public Long countByExample(){
+        return memberMapper.countByExample(null);
     }
 
 }
