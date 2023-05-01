@@ -2,11 +2,23 @@ GET http://localhost:8001/member/member/count
 
 ###
 
+POST http://localhost:8000/member/member/sendCode
+Content-Type: application/x-www-form-urlencoded
+
+mobile=12345678910
+
+###
+
+
+
 POST http://localhost:8001/member/member/register
 Content-Type: application/x-www-form-urlencoded
 
 mobile=123456789
 
-###
 
-GET http://localhost:8000/member/member/count
+###
+POST http://localhost:8001/member/member/login
+Content-Type: application/x-www-form-urlencoded
+
+mobile=12345678910&code=1234
