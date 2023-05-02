@@ -32,11 +32,16 @@ public class PassengerService {
     public void save(PassengerSaveReq req){
         DateTime date = DateTime.now();
         Passenger passenger = BeanUtil.copyProperties(req, Passenger.class);
-        passenger.setMemberId(LoginMemberContext.getId());
-        passenger.setId(SnowUtil.getSnowflakeNextId());
-        passenger.setCreateTime(date);
-        passenger.setUpdateTime(date);
-        passengerMapper.insert(passenger);
+        if(ObjectUtil.isNull(passenger.getId())){
+            passenger.setMemberId(LoginMemberContext.getId());
+            passenger.setId(SnowUtil.getSnowflakeNextId());
+            passenger.setCreateTime(date);
+            passenger.setUpdateTime(date);
+            passengerMapper.insert(passenger);
+        }else{
+            passenger.setUpdateTime(date);
+            passengerMapper.updateByPrimaryKey(passenger);
+        }
         return;
     }
 
