@@ -1,12 +1,16 @@
 package com.wj.train.member.resp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 
 import java.util.Date;
 
 public class PassengerQueryResp {
-    private Long id;
 
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long id;
+    @JsonSerialize(using = ToStringSerializer.class) // 使用json序列化将雪花算法生成的id转换成String类型避免精度丢失
     private Long memberId;
 
     private String name;

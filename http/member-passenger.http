@@ -4,7 +4,7 @@ Content-Type: application/json
 token: {{token}}
 
 {
-  "name": "王五",
+  "name": "赛文",
   "idCard": "123123123123123",
   "type": "1"
 }
