@@ -4,7 +4,13 @@ Content-Type: application/json
 token: {{token}}
 
 {
-  "name": "张三",
+  "name": "王五",
   "idCard": "123123123123123",
   "type": "1"
 }
+
+###
+
+GET http://localhost:8000/member/passenger/query-list
+Content-Type: application/json
+token: {{token}}
