@@ -1,5 +1,39 @@
 POST http://localhost:8000/member/passenger/save
 Content-Type: application/json
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2ODMwMjU4MDIsIm1vYmlsZSI6IjEyMzQ1Njc4OTEwIiwiaWQiOjE2NTI4Nzc0NzAzMjE0Nzk2ODAsImV4cCI6MTY4MzExMjIwMiwiaWF0IjoxNjgzMDI1ODAyfQ.l0OgGUgPqMHBRYBaALD4xa3UsHXxuowdcBpSy1hnb4w
+Content-Length: 68
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "张三",
+  "idCard": "123123123123123",
+  "type": "1"
+}
+
+<> 2023-05-02T191105.200.json
+
+###
+
+POST http://localhost:8000/member/member/login
+Content-Type: application/json
+Content-Length: 46
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "mobile": "12345678910",
+  "code":"8888"
+}
+
+<> 2023-05-02T191002.200.json
+
+###
+
+POST http://localhost:8000/member/passenger/save
+Content-Type: application/json
 token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2ODMwMjQzNTQsIm1vYmlsZSI6IjEyMzQ1Njc4OTEwIiwiaWQiOjE2NTI4Nzc0NzAzMjE0Nzk2ODAsImV4cCI6MTY4MzAyNDM2NCwiaWF0IjoxNjgzMDI0MzU0fQ.nJwzlk5rTbdnVNlvvuIGauJL21Fs3l9BEUJw1FYk5Ag
 Content-Length: 85
 Connection: Keep-Alive
@@ -591,26 +625,6 @@ User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 <> 2023-04-30T181807.404.json
-
-###
-
-GET http://localhost:8000/member/test
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-04-30T181641.404.json
-
-###
-
-GET http://localhost:8001/member/test
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-04-30T181625.200.json
 
 ###
 

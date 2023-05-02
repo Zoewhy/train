@@ -41,8 +41,8 @@ public class LogAspect {
 
     @Before("controllerPointcut()")
     public void doBefore(JoinPoint joinPoint) {
-        MDC.put("LOG_ID", UUID.randomUUID().toString().replace("-", ""));
-        // 开始打印请求日志
+
+        // 开始打印请求日志MDC
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         Signature signature = joinPoint.getSignature();
