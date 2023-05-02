@@ -2,6 +2,7 @@ package com.wj.train.member.controller;
 
 import com.wj.train.common.context.LoginMemberContext;
 import com.wj.train.common.resp.CommonResp;
+import com.wj.train.common.resp.PageResp;
 import com.wj.train.member.req.*;
 import com.wj.train.member.resp.MemberLoginResp;
 import com.wj.train.member.resp.PassengerQueryResp;
@@ -29,9 +30,9 @@ public class PassengerController {
 
 
     @GetMapping("/query-list")
-    public CommonResp<List<PassengerQueryResp>> queryListByMemberId(@Valid PassengerQueryReq req){
+    public CommonResp<PageResp<PassengerQueryResp>> queryListByMemberId(@Valid PassengerQueryReq req){
         req.setMemberId(LoginMemberContext.getId());
-        List<PassengerQueryResp> passengerQueryResps = passengerService.queryListByMemberId(req);
+        PageResp<PassengerQueryResp> passengerQueryResps = passengerService.queryListByMemberId(req);
         return new CommonResp<>(passengerQueryResps);
     }
 }

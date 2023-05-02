@@ -1,12 +1,13 @@
 package com.wj.train.member.req;
 
+import com.wj.train.common.req.PageReq;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.Date;
 
 
 
-public class PassengerQueryReq {
+public class PassengerQueryReq extends PageReq {
 
 
     private Long memberId;
