@@ -1,4 +1,4 @@
-package com.wj.train.member.service;
+package com.wj.train.${module}.service;
 
 
 import cn.hutool.core.bean.BeanUtil;
@@ -9,12 +9,12 @@ import com.github.pagehelper.PageInfo;
 import com.wj.train.common.context.LoginMemberContext;
 import com.wj.train.common.resp.PageResp;
 import com.wj.train.common.util.SnowUtil;
-import com.wj.train.member.domain.${Domain};
-import com.wj.train.member.domain.${Domain}Example;
-import com.wj.train.member.mapper.${Domain}Mapper;
-import com.wj.train.member.req.${Domain}QueryReq;
-import com.wj.train.member.req.${Domain}SaveReq;
-import com.wj.train.member.resp.${Domain}QueryResp;
+import com.wj.train.${module}.domain.${Domain};
+import com.wj.train.${module}.domain.${Domain}Example;
+import com.wj.train.${module}.mapper.${Domain}Mapper;
+import com.wj.train.${module}.req.${Domain}QueryReq;
+import com.wj.train.${module}.req.${Domain}SaveReq;
+import com.wj.train.${module}.resp.${Domain}QueryResp;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

@@ -1,13 +1,13 @@
-package com.wj.train.member.controller;
+package com.wj.train.${module}.controller;
 
 import com.wj.train.common.context.LoginMemberContext;
 import com.wj.train.common.resp.CommonResp;
 import com.wj.train.common.resp.PageResp;
-import com.wj.train.member.req.*;
-import com.wj.train.member.resp.MemberLoginResp;
-import com.wj.train.member.resp.${Domain}QueryResp;
-import com.wj.train.member.service.MemberService;
-import com.wj.train.member.service.${Domain}Service;
+import com.wj.train.${module}.req.*;
+import com.wj.train.${module}.resp.MemberLoginResp;
+import com.wj.train.${module}.resp.${Domain}QueryResp;
+import com.wj.train.${module}.service.MemberService;
+import com.wj.train.${module}.service.${Domain}Service;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
