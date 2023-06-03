@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ServerGenerator {
-    static String servicePath = "[module]/src/main/java/com/wj/train/[module]/service/";
+    static String servicePath = "[module]/src/main/java/com/wj/train/[module]/";
     static String pomPath =  "generator/pom.xml";
     static String module = "";
     static {
@@ -54,9 +54,20 @@ public class ServerGenerator {
         param.put("domain", domain);
         param.put("do_main", do_main);
         System.out.println("组装参数：" + param);
-        FreemarkerUtil.initConfig("service.ftl");
 
-        FreemarkerUtil.generator(servicePath +Domain+ "Service.java", param);
+        gen(Domain, param, "service");
+        gen(Domain, param, "controller");
+    }
+
+    private static void gen(String Domain, Map<String, Object> param, String target) throws IOException, TemplateException {
+        FreemarkerUtil.initConfig(target + ".ftl");
+        String toPath = servicePath + target + "/";
+        new File(toPath).mkdirs();
+        String Target = target.substring(0,1).toUpperCase() + target.substring(1);
+        String fileName = toPath + Domain + Target + ".java";
+        System.out.println("开始生成：" + fileName);
+        FreemarkerUtil.generator(fileName, param);
+
     }
 
     private static String getGenerator() throws DocumentException {
