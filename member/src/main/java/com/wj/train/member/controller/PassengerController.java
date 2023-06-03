@@ -11,6 +11,7 @@ import com.wj.train.member.service.PassengerService;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,5 +35,11 @@ public class PassengerController {
         req.setMemberId(LoginMemberContext.getId());
         PageResp<PassengerQueryResp> passengerQueryResps = passengerService.queryListByMemberId(req);
         return new CommonResp<>(passengerQueryResps);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public CommonResp<Object> delete(@PathVariable Long id){
+        passengerService.delete(id);
+        return new CommonResp<>();
     }
 }

@@ -66,7 +66,7 @@ export default defineComponent({
             memberId: undefined,
             name: undefined,
             idCard: undefined,
-            type: undefined,
+            type: undefined, 
             createTime: undefined,
             updateTime: undefined,
         });

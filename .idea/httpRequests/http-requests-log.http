@@ -1,3 +1,14 @@
+DELETE http://localhost:8000/member/passenger/save/1653392647332696064
+Content-Type: application/json
+token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2ODMwMjU4MDIsIm1vYmlsZSI6IjEyMzQ1Njc4OTEwIiwiaWQiOjE2NTI4Nzc0NzAzMjE0Nzk2ODAsImV4cCI6MTY4MzExMjIwMiwiaWF0IjoxNjgzMDI1ODAyfQ.l0OgGUgPqMHBRYBaALD4xa3UsHXxuowdcBpSy1hnb4w
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-05-02T222317.200.json
+
+###
+
 POST http://localhost:8000/member/passenger/save
 Content-Type: application/json
 token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2ODMwMjU4MDIsIm1vYmlsZSI6IjEyMzQ1Njc4OTEwIiwiaWQiOjE2NTI4Nzc0NzAzMjE0Nzk2ODAsImV4cCI6MTY4MzExMjIwMiwiaWF0IjoxNjgzMDI1ODAyfQ.l0OgGUgPqMHBRYBaALD4xa3UsHXxuowdcBpSy1hnb4w
@@ -673,19 +684,6 @@ Accept-Encoding: br,deflate,gzip,x-gzip
 mobile=123
 
 <> 2023-04-30T213705.200.json
-
-###
-
-POST http://localhost:8000/member/member/register
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 10
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-mobile=123
-
-<> 2023-04-30T212402.200.json
 
 ###
 

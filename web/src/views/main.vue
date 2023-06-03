@@ -17,6 +17,8 @@
 import { defineComponent, ref } from 'vue';
 import TheHeaderView from "@/components/the-header-view.vue";
 import TheSiderView from "@/components/the-sider-view.vue";
+
+
 export default defineComponent({
     name: "main-page",
     components: {
