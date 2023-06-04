@@ -2,7 +2,7 @@
     <a-layout-header class="header">
         <div class="logo">
             <router-link to="/welcome" style="color: white; font-size: 18px">
-                12306
+                吴俊12306控台
             </router-link>
         </div>
         <div style="float: right; color: white;">
@@ -19,19 +19,9 @@
                     <coffee-outlined /> &nbsp; 欢迎
                 </router-link>
             </a-menu-item>
-            <a-menu-item key="/passenger">
-                <router-link to="/passenger">
+            <a-menu-item key="/about">
+                <router-link to="/about">
                     <user-outlined /> &nbsp; 关于
-                </router-link>
-            </a-menu-item>
-            <a-menu-item key="/ticket">
-                <router-link to="/ticket">
-                    <user-outlined /> &nbsp; 余票查询
-                </router-link>
-            </a-menu-item>
-            <a-menu-item key="/my-ticket">
-                <router-link to="/my-ticket">
-                    <idcard-outlined /> &nbsp; 我的车票
                 </router-link>
             </a-menu-item>
         </a-menu>
@@ -40,22 +30,19 @@
 
 <script>
 import {defineComponent, ref, watch} from 'vue';
-import store from "@/store";
+
 import router from '@/router'
 
 export default defineComponent({
     name: "the-header-view",
     setup() {
-
         const selectedKeys = ref([]);
-
         watch(() => router.currentRoute.value.path, (newValue) => {
             console.log('watch', newValue);
             selectedKeys.value = [];
             selectedKeys.value.push(newValue);
         }, {immediate: true});
         return {
-            member,
             selectedKeys
         };
     },
