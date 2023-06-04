@@ -141,6 +141,17 @@ export default defineComponent({
               trainStation.value.namePinyin = "";
           }
       });
+
+      const queryTrainCode = () =>{
+          axios.get("/business/admin/train/query-all").then((response) => {
+              let data = response.data;
+              if(data.success){
+                  console.log(data.content);
+              }else {
+                  notification.error({description: data.message});
+              }
+          });
+      };
     const onAdd = () => {
       trainStation.value = {};
       visible.value = true;
@@ -223,6 +234,7 @@ export default defineComponent({
         page: 1,
         size: pagination.value.pageSize
       });
+      queryTrainCode();
     });
 
     return {
