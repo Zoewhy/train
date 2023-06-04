@@ -1,4 +1,4 @@
-package com.wj.train.business.controller;
+package com.wj.train.business.controller.admin;
 
 import com.wj.train.common.resp.CommonResp;
 import com.wj.train.common.resp.PageResp;
@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/station")
+@RequestMapping("/admin/station")
 @Slf4j
-public class StationController {
+public class StationAdminController {
     @Resource
     private StationService stationService;
 
