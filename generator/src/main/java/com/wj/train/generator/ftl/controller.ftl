@@ -1,12 +1,10 @@
 package com.wj.train.${module}.controller;
 
-import com.wj.train.common.context.LoginMemberContext;
 import com.wj.train.common.resp.CommonResp;
 import com.wj.train.common.resp.PageResp;
 import com.wj.train.${module}.req.*;
-import com.wj.train.${module}.resp.MemberLoginResp;
 import com.wj.train.${module}.resp.${Domain}QueryResp;
-import com.wj.train.${module}.service.MemberService;
+import com.wj.train.${module}.service.${Domain}Service;
 import com.wj.train.${module}.service.${Domain}Service;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
@@ -31,9 +29,8 @@ public class ${Domain}Controller {
 
 
     @GetMapping("/query-list")
-    public CommonResp<PageResp<${Domain}QueryResp>> queryListByMemberId(@Valid ${Domain}QueryReq req){
-        req.setMemberId(LoginMemberContext.getId());
-        PageResp<${Domain}QueryResp> ${domain}QueryResps = ${domain}Service.queryListByMemberId(req);
+    public CommonResp<PageResp<${Domain}QueryResp>> queryList(@Valid ${Domain}QueryReq req){
+        PageResp<${Domain}QueryResp> ${domain}QueryResps = ${domain}Service.queryList(req);
         return new CommonResp<>(${domain}QueryResps);
     }
 
