@@ -5,7 +5,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.List;
 
-public enum PassengerTypeEnum {
+public enum  PassengerTypeEnum {
 
     ADULT("1", "成人"),
     CHILD("2", "儿童"),
