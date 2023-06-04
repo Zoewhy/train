@@ -10,19 +10,9 @@
                     <coffee-outlined /> &nbsp; 欢迎
                 </router-link>
             </a-menu-item>
-            <a-menu-item key="/passenger">
-                <router-link to="/passenger">
+            <a-menu-item key="/about">
+                <router-link to="/about">
                     <user-outlined /> &nbsp; 关于
-                </router-link>
-            </a-menu-item>
-            <a-menu-item key="/ticket">
-                <router-link to="/ticket">
-                    <user-outlined /> &nbsp; 余票查询
-                </router-link>
-            </a-menu-item>
-            <a-menu-item key="/my-ticket">
-                <router-link to="/my-ticket">
-                    <idcard-outlined /> &nbsp; 我的车票
                 </router-link>
             </a-menu-item>
         </a-menu>
