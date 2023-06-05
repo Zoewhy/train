@@ -1,3 +1,53 @@
+GET http://localhost:8000/business/admin/train/gen-seat/G2
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-05T161857.200.json
+
+###
+
+GET http://localhost:8000/business/admin/train/gen-seat/G2
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-05T161521.200.json
+
+###
+
+GET http://localhost:8000/business/admin/train/gen-seat/G2
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-05T161322.200.json
+
+###
+
+GET http://localhost:8000/business/admin/train/gen-seat/G2
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-05T161227.404.json
+
+###
+
+GET http://localhost:8002/business/admin/train/gen-seat/G2
+Accept: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-06-05T161157.404.json
+
+###
+
 GET http://localhost:8002/business/admin/station/query-list?page=1&size=10
 Accept: application/json
 Connection: Keep-Alive
@@ -604,71 +654,6 @@ Accept-Encoding: br,deflate,gzip,x-gzip
 mobile=12345678910
 
 <> 2023-05-01T112752.200.json
-
-###
-
-POST http://localhost:8000/member/member/sendCode
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 16
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-mobile=123456789
-
-<> 2023-05-01T112724.200.json
-
-###
-
-POST http://localhost:8000/member/member/sendCode
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 16
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-mobile=123456789
-
-<> 2023-05-01T112720.200.json
-
-###
-
-POST http://localhost:8000/member/member/register
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 16
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-mobile=123456789
-
-<> 2023-05-01T112643.200.json
-
-###
-
-POST http://localhost:8001/member/member/register
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 16
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-mobile=123456789
-
-<> 2023-04-30T235527.200.json
-
-###
-
-POST http://localhost:8001/member/member/register
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 15
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-mobile=12345678
-
-<> 2023-04-30T235501.200.json
 
 ###
 
