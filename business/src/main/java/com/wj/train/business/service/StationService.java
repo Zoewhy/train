@@ -38,7 +38,7 @@ public class StationService {
             //保存之前，先校验下唯一健是否已经存在
             Station db = selectByUnique(req.getName());
             if(ObjectUtil.isNotNull(db)){
-                throw new BusinessException(BusinessExceptionEnum.BUSINESS_STATION_NAME__UNIQUE_ERROR);
+                throw new BusinessException(BusinessExceptionEnum.BUSINESS_STATION_NAME_UNIQUE_ERROR);
             }
 
             station.setId(SnowUtil.getSnowflakeNextId());
@@ -59,7 +59,6 @@ public class StationService {
             return stations.get(0);
         }
         return null;
-
     }
 
     public PageResp<StationQueryResp> queryList(StationQueryReq req) {

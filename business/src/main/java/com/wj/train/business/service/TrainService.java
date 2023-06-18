@@ -1,14 +1,17 @@
 package com.wj.train.business.service;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.util.ObjectUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.wj.train.business.domain.*;
+import com.wj.train.common.Exception.BusinessException;
+import com.wj.train.common.Exception.BusinessExceptionEnum;
 import com.wj.train.common.resp.PageResp;
 import com.wj.train.common.util.SnowUtil;
 import com.wj.train.business.domain.Train;
-import com.wj.train.business.domain.TrainExample;
 import com.wj.train.business.mapper.TrainMapper;
 import com.wj.train.business.req.TrainQueryReq;
 import com.wj.train.business.req.TrainSaveReq;
@@ -32,6 +35,12 @@ public class TrainService {
         DateTime now = DateTime.now();
         Train train = BeanUtil.copyProperties(req, Train.class);
         if (ObjectUtil.isNull(train.getId())) {
+
+            //保存之前，先校验下唯一健是否已经存在
+            Train db = selectByUnique(req.getCode());
+            if(ObjectUtil.isNotNull(db)){
+                throw new BusinessException(BusinessExceptionEnum.BUSINESS_TRAIN_CODE_UNIQUE_ERROR);
+            }
             train.setId(SnowUtil.getSnowflakeNextId());
             train.setCreateTime(now);
             train.setUpdateTime(now);
@@ -41,7 +50,16 @@ public class TrainService {
             trainMapper.updateByPrimaryKey(train);
         }
     }
-
+    private Train selectByUnique(String code) {
+        TrainExample trainExample = new TrainExample();
+        trainExample.createCriteria()
+                .andCodeEqualTo(code);
+        List<Train> trainList = trainMapper.selectByExample(trainExample);
+        if(CollUtil.isNotEmpty(trainList)){
+            return trainList.get(0);
+        }
+        return null;
+    }
     public PageResp<TrainQueryResp> queryList(TrainQueryReq req) {
         TrainExample trainExample = new TrainExample();
         trainExample.setOrderByClause("id desc");
