@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
 @EnableScheduling
 public class SpringBootTestJob {
 
-    @Scheduled(cron = "0/5 * * * * ?")
-    private void test(){
-        System.out.println("SpringBootTestJob");
-    }
+//     @Scheduled(cron = "0/5 * * * * ?")
+//    private void test(){
+//        System.out.println("SpringBootTestJob");
+//    }
 }
