@@ -9,10 +9,14 @@ spring:
           predicates:
             - Path=/member/**
           uri: http://127.0.0.1:8001
-        - id: member
+        - id: business
           predicates:
             - Path=/business/**
           uri: http://127.0.0.1:8002
+        - id: batch
+          predicates:
+            - Path=/batch/**
+          uri: http://127.0.0.1:8003
       globalcors:
         cors-configurations:
           #针对后端所有接口
