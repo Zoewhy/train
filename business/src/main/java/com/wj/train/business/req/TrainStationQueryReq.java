@@ -5,8 +5,6 @@ import com.wj.train.common.req.PageReq;
 public class TrainStationQueryReq extends PageReq {
     String trainCode;
 
-
-
     public String getTrainCode() {
         return trainCode;
     }
