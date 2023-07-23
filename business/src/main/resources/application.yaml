@@ -3,6 +3,8 @@ server:
   servlet:
     context-path: /business
 spring:
+  application:
+    name: business
   datasource:
     url: jdbc:mysql://192.168.31.121:3306/train_business?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai
     username: train_business
