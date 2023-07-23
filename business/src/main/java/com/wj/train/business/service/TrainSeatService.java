@@ -7,6 +7,7 @@ import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.wj.train.business.domain.TrainCarriage;
+import com.wj.train.business.domain.TrainCarriageExample;
 import com.wj.train.business.enums.SeatColEnum;
 import com.wj.train.business.enums.SeatTypeEnum;
 import com.wj.train.business.req.TrainCarriageQueryReq;
@@ -117,5 +118,11 @@ public class TrainSeatService {
             //拿到车厢数据：行数，座位类型（得到列数）
             //根据车厢座位类型，筛选出所有的列，比如车厢是一等座则筛选出column
     }
-
+    public List<TrainSeat> selectByTrainCode(String trainCode){
+        TrainSeatExample trainSeatExample = new TrainSeatExample();
+        trainSeatExample.setOrderByClause("`id` asc");
+        TrainSeatExample.Criteria criteria = trainSeatExample.createCriteria();
+        criteria.andTrainCodeEqualTo(trainCode);
+        return trainSeatMapper.selectByExample(trainSeatExample);
+    }
 }
