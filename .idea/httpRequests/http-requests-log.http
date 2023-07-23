@@ -1,3 +1,67 @@
+POST http://localhost:8000/batch/admin/job/run
+Content-Type: application/json
+Content-Length: 81
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "com.wj.train.batch.job.DailyTrainJob",
+  "jobGroupName": "default"
+}
+
+<> 2023-07-23T171636.200.json
+
+###
+
+POST http://localhost:8000/batch/admin/job/run
+Content-Type: application/json
+Content-Length: 81
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "com.wj.train.batch.job.DailyTrainJob",
+  "jobGroupName": "default"
+}
+
+<> 2023-07-23T171455.200.json
+
+###
+
+POST http://localhost:8000/batch/admin/job/run
+Content-Type: application/json
+Content-Length: 81
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "com.wj.train.batch.job.DailyTrainJob",
+  "jobGroupName": "default"
+}
+
+<> 2023-07-23T171441.200.json
+
+###
+
+POST http://localhost:8000/batch/admin/job/run
+Content-Type: application/json
+Content-Length: 81
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "com.wj.train.batch.job.DailyTrainJob",
+  "jobGroupName": "default"
+}
+
+<> 2023-07-23T170908.200.json
+
+###
+
 GET http://localhost:8000/batch/hello
 Accept: application/json
 Connection: Keep-Alive
@@ -590,50 +654,6 @@ User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 <> 2023-05-02T212143.200.json
-
-###
-
-GET http://localhost:8000/member/passenger/query-list?page=1&size=2
-Content-Type: application/json
-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2ODMwMjU4MDIsIm1vYmlsZSI6IjEyMzQ1Njc4OTEwIiwiaWQiOjE2NTI4Nzc0NzAzMjE0Nzk2ODAsImV4cCI6MTY4MzExMjIwMiwiaWF0IjoxNjgzMDI1ODAyfQ.l0OgGUgPqMHBRYBaALD4xa3UsHXxuowdcBpSy1hnb4w
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-05-02T211857.200.json
-
-###
-
-GET http://localhost:8000/member/passenger/query-list?page=1&size=1000
-Content-Type: application/json
-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2ODMwMjU4MDIsIm1vYmlsZSI6IjEyMzQ1Njc4OTEwIiwiaWQiOjE2NTI4Nzc0NzAzMjE0Nzk2ODAsImV4cCI6MTY4MzExMjIwMiwiaWF0IjoxNjgzMDI1ODAyfQ.l0OgGUgPqMHBRYBaALD4xa3UsHXxuowdcBpSy1hnb4w
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-05-02T211853.200.json
-
-###
-
-GET http://localhost:8000/member/passenger/query-list?page=1&size=1000
-Content-Type: application/json
-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2ODMwMjU4MDIsIm1vYmlsZSI6IjEyMzQ1Njc4OTEwIiwiaWQiOjE2NTI4Nzc0NzAzMjE0Nzk2ODAsImV4cCI6MTY4MzExMjIwMiwiaWF0IjoxNjgzMDI1ODAyfQ.l0OgGUgPqMHBRYBaALD4xa3UsHXxuowdcBpSy1hnb4w
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-05-02T210745.200.json
-
-###
-
-GET http://localhost:8000/member/passenger/query-list?page=1&size=2
-Content-Type: application/json
-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2ODMwMjU4MDIsIm1vYmlsZSI6IjEyMzQ1Njc4OTEwIiwiaWQiOjE2NTI4Nzc0NzAzMjE0Nzk2ODAsImV4cCI6MTY4MzExMjIwMiwiaWF0IjoxNjgzMDI1ODAyfQ.l0OgGUgPqMHBRYBaALD4xa3UsHXxuowdcBpSy1hnb4w
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-05-02T210529.200.json
 
 ###
 
