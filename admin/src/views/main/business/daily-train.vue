@@ -5,6 +5,7 @@
         <train-select-view v-model:model-value="params.code" ></train-select-view>
       <a-button type="primary" @click="handleQuery()">刷新</a-button>
       <a-button type="primary" @click="onAdd">新增</a-button>
+        <a-button type="danger" @click="onClickGenDaily">手动生成车次信息</a-button>
     </a-space>
   </p>
   <a-table :dataSource="dailyTrains"
@@ -70,6 +71,14 @@
       </a-form-item>
     </a-form>
   </a-modal>
+  <a-modal v-model:visible="genDailyVisible" title = "生成车次" @ok="handleGenDailyOk"
+            on-text="确认" cancel-text="取消" :confirm-loading="genDailyLoading">
+      <a-form :model = "genDaily" :label-col="{span:4}" :wrapper-col="{span: 20}">
+          <a-form-item label="日期">
+              <a-date-picker v-model:value="genDaily.date" valueFormat="YYYY-MM-DD" placeholder="请选择日期" />
+          </a-form-item>
+      </a-form>
+  </a-modal>
 </template>
 
 <script>
@@ -77,6 +86,7 @@ import { defineComponent, ref, onMounted } from 'vue';
 import {notification} from "ant-design-vue";
 import axios from "axios";
 import TrainSelectView from "@/components/train-select.vue";
+import dayjs from "dayjs";
 
 export default defineComponent({
   name: "daily-train-view",
@@ -102,7 +112,11 @@ export default defineComponent({
           date: null,
           code: null
       });
-
+  const genDaily = ref({
+      date: null
+  });
+      const genDailyVisible = ref(false);
+      const genDailyLoading = ref(false);
     const dailyTrains = ref([]);
     // 分页的三个属性名是固定的
     const pagination = ref({
@@ -243,6 +257,30 @@ export default defineComponent({
       });
     };
 
+    const onClickGenDaily= ()=>{
+        genDailyVisible.value = true;
+    };
+    const handleGenDailyOk= ()=>{
+        let date = dayjs(genDaily.value.date).format("YYYY-MM-DD");
+        console.log(genDaily.value.date);
+        console.log(date);
+        genDailyLoading.value = true;
+        axios.get("/business/admin/daily-train/gen-daily/"+ date).then((response) =>{
+            let data = response.data;
+            if(data.success){
+                notification.success({description:"生成成功！"});
+                genDailyLoading.value =false;
+                handleQuery({
+                    page: pagination.value.current,
+                    size: pagination.value.pageSize
+                });
+            }else{
+                notification.error({description: data.message});
+            }
+        });
+    };
+
+
     const handleTableChange = (page) => {
       // console.log("看看自带的分页参数都有啥：" + JSON.stringify(page));
       pagination.value.pageSize = page.pageSize;
@@ -274,7 +312,12 @@ export default defineComponent({
       onEdit,
       onDelete,
         onChangeCode,
-        params
+        params,
+        genDaily,
+        genDailyVisible,
+        onClickGenDaily,
+        handleGenDailyOk,
+        genDailyLoading
     };
   },
 });
