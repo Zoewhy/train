@@ -10,8 +10,10 @@ import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Delete;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -37,6 +39,13 @@ public class DailyTrainAdminController {
     @DeleteMapping("/delete/{id}")
     public CommonResp<Object> delete(@PathVariable Long id){
         dailyTrainService.delete(id);
+        return new CommonResp<>();
+    }
+    @GetMapping("/gen-daily/{date}")
+    public CommonResp<Object> genDaily(
+            @PathVariable
+            @DateTimeFormat(pattern = "yyyy-MM-dd") Date date){
+        dailyTrainService.genDaily(date);
         return new CommonResp<>();
     }
 }
