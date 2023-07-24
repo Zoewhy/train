@@ -10,6 +10,70 @@ Accept-Encoding: br,deflate,gzip,x-gzip
   "jobGroupName": "default"
 }
 
+<> 2023-07-25T001059.200.json
+
+###
+
+POST http://localhost:8000/batch/admin/job/run
+Content-Type: application/json
+Content-Length: 81
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "com.wj.train.batch.job.DailyTrainJob",
+  "jobGroupName": "default"
+}
+
+<> 2023-07-25T000737.200.json
+
+###
+
+POST http://localhost:8000/batch/admin/job/run
+Content-Type: application/json
+Content-Length: 81
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "com.wj.train.batch.job.DailyTrainJob",
+  "jobGroupName": "default"
+}
+
+<> 2023-07-25T000645.200.json
+
+###
+
+POST http://localhost:8000/batch/admin/job/run
+Content-Type: application/json
+Content-Length: 81
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "com.wj.train.batch.job.DailyTrainJob",
+  "jobGroupName": "default"
+}
+
+<> 2023-07-25T000555.200.json
+
+###
+
+POST http://localhost:8000/batch/admin/job/run
+Content-Type: application/json
+Content-Length: 81
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "name": "com.wj.train.batch.job.DailyTrainJob",
+  "jobGroupName": "default"
+}
+
 <> 2023-07-23T224325.200.json
 
 ###
@@ -604,47 +668,6 @@ User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 <> 2023-06-04T152603.200.json
-
-###
-
-GET http://localhost:8002/business/admin/station/query-list
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-06-04T152515.404.json
-
-###
-
-GET http://localhost:8000/business/hello
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-06-04T125004.200.json
-
-###
-
-GET http://localhost:8002/business/hello
-Accept: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-06-04T124953.200.json
-
-###
-
-DELETE http://localhost:8000/member/passenger/save/1653392647332696064
-Content-Type: application/json
-token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2ODMwMjU4MDIsIm1vYmlsZSI6IjEyMzQ1Njc4OTEwIiwiaWQiOjE2NTI4Nzc0NzAzMjE0Nzk2ODAsImV4cCI6MTY4MzExMjIwMiwiaWF0IjoxNjgzMDI1ODAyfQ.l0OgGUgPqMHBRYBaALD4xa3UsHXxuowdcBpSy1hnb4w
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-05-02T222317.200.json
 
 ###
 

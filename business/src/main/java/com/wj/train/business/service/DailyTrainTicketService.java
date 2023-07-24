@@ -1,14 +1,15 @@
 package com.wj.train.business.service;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ObjectUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.wj.train.business.domain.*;
 import com.wj.train.common.resp.PageResp;
 import com.wj.train.common.util.SnowUtil;
-import com.wj.train.business.domain.DailyTrainTicket;
-import com.wj.train.business.domain.DailyTrainTicketExample;
 import com.wj.train.business.mapper.DailyTrainTicketMapper;
 import com.wj.train.business.req.DailyTrainTicketQueryReq;
 import com.wj.train.business.req.DailyTrainTicketSaveReq;
@@ -17,7 +18,10 @@ import jakarta.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -28,6 +32,8 @@ public class DailyTrainTicketService {
     @Resource
     private DailyTrainTicketMapper dailyTrainTicketMapper;
 
+    @Resource
+    private TrainStationService trainStationService;
     public void save(DailyTrainTicketSaveReq req) {
         DateTime now = DateTime.now();
         DailyTrainTicket dailyTrainTicket = BeanUtil.copyProperties(req, DailyTrainTicket.class);
@@ -63,7 +69,55 @@ public class DailyTrainTicketService {
         pageResp.setList(list);
         return pageResp;
     }
+    @Transactional
+    public void genDaily(Date date, String trainCode){
+        LOG.info("开始生成日期【{}】车次【{}】的余票信息", DateUtil.formatDate(date), trainCode);
+        //删除某日车次的车站信息
+        DailyTrainTicketExample dailyTrainTicketExample = new DailyTrainTicketExample();
+        dailyTrainTicketExample.createCriteria()
+                .andDateEqualTo(date)
+                .andTrainCodeEqualTo(trainCode);
+        dailyTrainTicketMapper.deleteByExample(dailyTrainTicketExample);
 
+        //查出某车次所有车站信息
+        List<TrainStation> trainStations = trainStationService.selectByTrainCode(trainCode);
+        if(CollUtil.isEmpty(trainStations)){
+            LOG.info("该车次没有车站基础数据，生成该车次的余票信息结束");
+            return;
+        }
+        DateTime now = new DateTime();
+        for(int i = 0; i<trainStations.size();i++){
+            TrainStation trainStationStart = trainStations.get(i);
+            for(int j = i+1;j<trainStations.size();j++){
+                TrainStation trainStationEnd = trainStations.get(j);
+                DailyTrainTicket dailyTrainTicket = new DailyTrainTicket();
+                dailyTrainTicket.setId(SnowUtil.getSnowflakeNextId());
+                dailyTrainTicket.setDate(date);
+                dailyTrainTicket.setTrainCode(trainCode);
+                dailyTrainTicket.setStart(trainStationStart.getName());
+                dailyTrainTicket.setStartPinyin(trainStationStart.getNamePinyin());
+                dailyTrainTicket.setStartIndex(trainStationStart.getIndex());
+                dailyTrainTicket.setStartTime(trainStationStart.getOutTime());
+                dailyTrainTicket.setEnd(trainStationEnd.getName());
+                dailyTrainTicket.setEndPinyin(trainStationEnd.getNamePinyin());
+                dailyTrainTicket.setEndTime(trainStationEnd.getInTime());
+                dailyTrainTicket.setEndIndex(trainStationEnd.getIndex());
+                dailyTrainTicket.setEndTime(trainStationEnd.getInTime());
+                dailyTrainTicket.setYdz(0);
+                dailyTrainTicket.setYdzPrice(BigDecimal.ZERO);
+                dailyTrainTicket.setEdz(0);
+                dailyTrainTicket.setEdzPrice(BigDecimal.ZERO);
+                dailyTrainTicket.setRw(0);
+                dailyTrainTicket.setRwPrice(BigDecimal.ZERO);
+                dailyTrainTicket.setYw(0);
+                dailyTrainTicket.setYwPrice(BigDecimal.ZERO);
+                dailyTrainTicket.setCreateTime(now);
+                dailyTrainTicket.setUpdateTime(now);
+                dailyTrainTicketMapper.insert(dailyTrainTicket);
+            }
+        }
+
+    }
     public void delete(Long id) {
         dailyTrainTicketMapper.deleteByPrimaryKey(id);
     }

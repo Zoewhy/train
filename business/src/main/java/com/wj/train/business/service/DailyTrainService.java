@@ -8,6 +8,7 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.wj.train.business.domain.DailyTrainTicket;
 import com.wj.train.business.domain.Train;
 import com.wj.train.business.mapper.DailyTrainStationMapper;
 import com.wj.train.common.resp.PageResp;
@@ -44,6 +45,9 @@ public class DailyTrainService {
 
     @Resource
     private DailyTrainSeatService dailyTrainSeatService;
+
+    @Resource
+    private DailyTrainTicketService dailyTrainTicketService;
     public void save(DailyTrainSaveReq req) {
         DateTime now = DateTime.now();
         DailyTrain dailyTrain = BeanUtil.copyProperties(req, DailyTrain.class);
@@ -125,6 +129,7 @@ public class DailyTrainService {
         //生成该车次的车厢数据
         dailyTrainCarriageService.genDaily(date, train.getCode());
         dailyTrainSeatService.genDaily(date, train.getCode());
+        dailyTrainTicketService.genDaily(date, train.getCode());
         LOG.info("生成日期【{}】车次【{}】的信息结束", DateUtil.formatDate(date), train.getCode());
     }
 }
