@@ -17,6 +17,7 @@
            :loading="loading">
     <template #bodyCell="{ column, record }">
       <template v-if="column.dataIndex === 'operation'">
+          <a-button type="primary" @click="toOrder(record)">预订</a-button>
       </template>
         <template v-else-if="column.dataIndex === 'station'">
             {{record.start}}<br/>
@@ -82,6 +83,7 @@ import {notification} from "ant-design-vue";
 import axios from "axios";
 import StationSelectView from "@/components/station-select.vue";
 import dayjs from "dayjs";
+import router from "@/router";
 
 export default defineComponent({
   name: "ticket-view",
@@ -164,6 +166,11 @@ export default defineComponent({
       dataIndex: 'yw',
       key: 'yw',
     },
+        {
+            title: '操作',
+            dataIndex: 'operation',
+
+        },
     ];
 
 
@@ -180,6 +187,8 @@ export default defineComponent({
             notification.error({description: "请输入目的地"});
             return;
         }
+        //保存查询参数
+        SessionStorage.set(SESSION_TICKET_PARAMS, params.value);
       if (!param) {
         param = {
           page: 1,
@@ -210,6 +219,11 @@ export default defineComponent({
       });
     };
 
+    const toOrder = (record) => {
+        SessionStorage.set(SESSION_ORDER, record);
+        router.push("/order");
+    }
+
     const handleTableChange = (page) => {
       // console.log("看看自带的分页参数都有啥：" + JSON.stringify(page));
       pagination.value.pageSize = page.pageSize;
@@ -224,6 +238,13 @@ export default defineComponent({
       //   page: 1,
       //   size: pagination.value.pageSize
       // });
+        params.value = SessionStorage.get(SESSION_TICKET_PARAMS) || {};
+        if(Tool.isNotEmpty(params.value)){
+            handleQuery({
+                page: 1,
+                size: pagination.value.pageSize
+            });
+        }
     });
 
      const calDuraion = (startTime, endTime) => {
@@ -242,6 +263,7 @@ export default defineComponent({
       loading,
         params,
         calDuraion,
+        toOrder,
     };
   },
 });
