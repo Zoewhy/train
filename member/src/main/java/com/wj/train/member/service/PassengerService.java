@@ -69,6 +69,10 @@ public class PassengerService {
         passengerMapper.deleteByPrimaryKey(id);
     }
 
+    /**
+     * 查询我的所有乘客
+     * @return
+     */
     public List<PassengerQueryResp> queryMine(){
         PassengerExample passengerExample = new PassengerExample();
         passengerExample.setOrderByClause("name asc");

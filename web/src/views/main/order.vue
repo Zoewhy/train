@@ -16,15 +16,21 @@
 
   </div>
  </div>
+ <a-drivder/>
+ {{ passengers }}
 </template>
 
 <script>
+import axios from "axios";
+import {notification} from "ant-design-vue";
+import {onMounted, ref} from "vue";
+
 export default {
     name: "order-view",
     setup(){
         const dailyTrainTicket = SessionStorage.get(SESSION_ORDER) || {};
         console.log("下单的车次信息", dailyTrainTicket);
-
+        const passengers = ref([]);
         const SEAT_TYPE = window.SEAT_TYPE;
         console.log(SEAT_TYPE);
         const seatTypes = [];
@@ -41,9 +47,27 @@ export default {
            }
         }
         console.log("本车次提供的座位:", seatTypes);
+        const hanleQueryPassenger = () => {
+            axios.get("/member/passenger/query-mine").then((response) => {
+             let data = response.data;
+             if(data.success){
+              passengers.value = data.content;
+             }else{
+              notification.error({description: data.message});
+             }
+            })
+        };
+
+        onMounted(()=>{
+          hanleQueryPassenger();
+        });
+
+
         return {
             dailyTrainTicket,
            seatTypes,
+         passengers,
+         hanleQueryPassenger,
         };
     }
 }
